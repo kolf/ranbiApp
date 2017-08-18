@@ -1,0 +1,72 @@
+<style lang="less">
+.table {
+	border: 0px solid darkgray;
+	width: 100%
+}
+
+.tr {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	height: 3rem;
+	align-items: center;
+}
+
+.td {
+	width: 40%;
+	justify-content: center;
+	text-align: center;
+}
+
+.bg-w {
+	background: snow;
+}
+
+.bg-g {
+	background: #E6F3F9;
+}
+
+.th {
+	width: 40%;
+	justify-content: center;
+	background: #3366FF;
+	color: #fff;
+	display: flex;
+	height: 3rem;
+	align-items: center;
+}
+</style>
+<template>
+	<view class="table">
+		<view class="tr bg-w">
+			<view class="th">head1</view>
+			<view class="th">head2</view>
+			<view class="th ">head3</view>
+		</view>
+		<block wx:for="{{list}}" wx:key="{{code}}">
+			<view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+				<view class="td">{{item.code}}</view>
+				<view class="td">{{item.text}}</view>
+				<view class="td">{{item.type}}</view>
+			</view>
+			<view class="tr" wx:else>
+				<view class="td">{{item.code}}</view>
+				<view class="td">{{item.text}}</view>
+				<view class="td">{{item.type}}</view>
+			</view>
+		</block>
+	</view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Table extends wepy.component {
+	props = {
+		list: []
+	}
+
+	methods = {
+
+	}
+}
+</script>
